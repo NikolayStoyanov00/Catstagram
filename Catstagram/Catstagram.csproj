@@ -13,9 +13,11 @@
     <None Remove="Microsoft.AspNetCore.Identity.UI" />
     <None Remove="Data\Models\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
-    <None Remove="Models\Identity\" />
     <None Remove="Infrastructure\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Features\Identity\" />
+    <None Remove="Features\Cats\" />
+    <None Remove="Swashbuckle.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,12 +34,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Data\Models\" />
-    <Folder Include="Models\Identity\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Features\Identity\" />
+    <Folder Include="Features\Cats\" />
   </ItemGroup>
 </Project>

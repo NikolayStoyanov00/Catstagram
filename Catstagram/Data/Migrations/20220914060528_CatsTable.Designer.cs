@@ -4,6 +4,7 @@ using Catstagram.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Catstagram.Data.Migrations
 {
     [DbContext(typeof(CatstagramDbContext))]
-    partial class CatstagramDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220914060528_CatsTable")]
+    partial class CatsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +49,7 @@ namespace Catstagram.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Cats");
+                    b.ToTable("Cat");
                 });
 
             modelBuilder.Entity("Catstagram.Data.Models.User", b =>
@@ -253,7 +255,7 @@ namespace Catstagram.Data.Migrations
                     b.HasOne("Catstagram.Data.Models.User", "User")
                         .WithMany("Cats")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
